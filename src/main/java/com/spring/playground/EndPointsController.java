@@ -5,9 +5,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class EndPointsController {
 
+    @GetMapping("")
+
     @GetMapping("/")
     public String indexString() {
-        return "This is the endpoint you are looking for";
+        return "Hello from Spring!";
     }
 
     @PostMapping("/messages")

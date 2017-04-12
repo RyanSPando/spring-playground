@@ -26,7 +26,7 @@ public class EndPointsControllerTest {
 	public void rootLoads() throws Exception {
 		this.mvc.perform(get("/").accept(MediaType.TEXT_PLAIN))
 				.andExpect(status().isOk())
-				.andExpect(content().string("This is the endpoint you are looking for"));
+				.andExpect(content().string("Hello from Spring!"));
 	}
 
 	@Test
