@@ -50,4 +50,11 @@ public class EndPointsControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().string("Delete Return"));
 	}
+
+	@Test
+	public void testMathPiEndpoint() throws Exception {
+		this.mvc.perform(get("/math/pi"))
+				.andExpect(status().isOk())
+				.andExpect(content().string("3.141592653589793"));
+	}
 }

@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.*;
 public class EndPointsController {
 
     @GetMapping("")
+    public String blankString() {
+        return "Hello from Spring!";
+    }
 
     @GetMapping("/")
     public String indexString() {
@@ -25,5 +28,10 @@ public class EndPointsController {
     @DeleteMapping("/messages")
     public String deleteString() {
         return "Delete Return";
+    }
+
+    @GetMapping("/math/pi")
+    public String pi() {
+        return "3.141592653589793";
     }
 }
