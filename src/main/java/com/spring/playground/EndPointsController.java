@@ -29,9 +29,4 @@ public class EndPointsController {
     public String deleteString() {
         return "Delete Return";
     }
-
-    @GetMapping("/math/pi")
-    public String pi() {
-        return "3.141592653589793";
-    }
 }
