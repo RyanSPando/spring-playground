@@ -9,6 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -61,5 +62,12 @@ public class QueryControllerTest{
         this.mvc.perform(get("/math/calculate?x=5&y=2"))
                 .andExpect(status().isOk())
                 .andExpect(content().string("5 + 2 = 7"));
+    }
+
+    @Test
+    public void mathCalculate_Sum() throws Exception {
+        this.mvc.perform(post("/math/sum?n=3&n=4&n=5"))
+                .andExpect((status().isOk()))
+                .andExpect(content().string("3 + 4 + 5 = 12"));
     }
 }

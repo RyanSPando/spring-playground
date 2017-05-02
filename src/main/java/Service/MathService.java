@@ -3,6 +3,7 @@ package Service;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MathService {
@@ -45,5 +46,12 @@ public class MathService {
         operatorMap.put("divide", "/");
 
         return operatorMap;
+    }
+
+    public static String sum(List<String> params) {
+        String message = params.stream().reduce((x,y) -> x + " + " + y).get();
+        BigDecimal total = params.stream().map(BigDecimal::new).reduce(BigDecimal::add).get();
+
+        return message + " = " + new DecimalFormat("0.##").format(total);
     }
 }
